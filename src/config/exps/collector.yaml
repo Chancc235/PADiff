@@ -1,0 +1,32 @@
+exp_name: stage2_collector
+
+pop: collector
+ind: collector
+
+# ====> environment config <====
+env: lbf
+t_max: 1 # 保持不变，最大交互时间
+runner: meta  # runner 不变，用于运行环境
+batch_size_run: 1
+save_BR: True  # 保持True，定期保存轨迹
+save_BR_episodes: 1024  # 保持不变，轨迹保存频率
+population_size: 3 # modify
+
+# ====> population config <====
+alg2agent:
+  controllable: [0, 1]  # 可控智能体
+  teammate: [0]  # 队友智能体
+
+explore_alg: vdn
+
+teammate_alg: vdn
+population_directories:  models/
+
+
+use_history: True # 保持True，使用历史轨迹，三个checkpoints
+
+
+env_args:
+  field_size: 20
+  max_food: 4
+  sight: 2

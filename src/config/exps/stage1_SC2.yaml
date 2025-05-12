@@ -1,0 +1,38 @@
+exp_name: stage1_SC2
+
+pop: stage1
+ind: stage1
+
+# env_args:
+#   map_name: Fork
+# t_max: 3000000
+# runner: meta
+# batch_size_run: 32
+
+# population_alg: vdn # vdn, qmix
+# population_size: 5
+
+# optimize_meta: True # Set 'False' for no diversity among population
+# inner_loop_episodes: 128 # runs of each inner loop
+# meta_update_times: 8 # gradient update times for each meta update
+# cur_episodes: 32 # num of trajectories for estimating loss
+
+# save_population: True
+# save_population_episodes: 4096
+
+env_args:
+  map_name: 1c3s5z
+t_max: 3000000
+runner: meta
+batch_size_run: 32
+
+population_alg: vdn # vdn, qmix
+population_size: 5
+
+optimize_meta: True # Set 'False' for no diversity among population
+inner_loop_episodes: 128 # runs of each inner loop
+meta_update_times: 1 # gradient update times for each meta update
+cur_episodes: 32 # num of trajectories for estimating loss
+
+save_population: True
+save_population_episodes: 4096

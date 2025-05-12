@@ -1,0 +1,1 @@
+nohup python src/meta_main.py --config=collector > output.log 2>&1 &

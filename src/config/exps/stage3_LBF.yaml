@@ -1,0 +1,31 @@
+exp_name: stage3_LBF
+target_alg: stage3_kmeans
+
+pop: stage3
+ind: stage3
+
+env: lbf
+env_args:
+  field_size: 20
+  max_food: 4
+  sight: 2
+
+t_max: 10000000
+runner: meta
+batch_size_run: 32
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save_BR
+
+# ====> population config <====
+alg2agent:
+  controllable: [0]
+  teammate: [1]
+
+teammate_alg: vdn # trained in stage1
+population_directories:
+test_population_directories: 
+use_history: False # If set 'False', use last checkpoint only
+
+explore_alg: stage2_LBF
+explore_load_path: 

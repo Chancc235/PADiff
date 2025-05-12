@@ -1,0 +1,20 @@
+mac: "basic"
+action_selector: epsilon_greedy
+epsilon_start: 0.05
+epsilon_finish: 0.05
+epsilon_anneal_time: 50000
+explore_alg: vdn
+population_alg: vdn
+
+agent: "rnn"
+rnn_hidden_dim: 64
+env_args:
+  field_size: 20
+  max_food: 8
+  sight: 2
+
+agent_ids: [0, 1]
+
+alg2agent:
+  controllable: [0, 1]  # 可控智能体
+  teammate: [0]  # 队友智能体

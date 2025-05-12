@@ -1,0 +1,27 @@
+exp_name: stage3_PP
+target_alg: stage3_kmeans # final exploit algorithm
+
+pop: stage3
+ind: stage3
+
+# ====> running config <====
+env: stag_hunt
+t_max: 5000000
+runner: meta
+batch_size_run: 32
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+# ====> population config <====
+alg2agent:
+  controllable: [0]
+  teammate: [1]
+
+teammate_alg: vdn
+population_directories: 
+test_population_directories: 
+use_history: False # If set 'False', use last checkpoint only
+
+explore_alg: stage2_PP
+explore_load_path: 

@@ -1,0 +1,26 @@
+exp_name: stage1_LBF
+
+pop: stage1
+ind: stage1
+
+env: lbf
+env_args:
+  field_size: 20
+  max_food: 4
+  sight: 2
+
+t_max: 30000000
+runner: meta
+batch_size_run: 256
+
+# ====> population config <====
+population_alg: vdn # vdn, qmix
+population_size: 4
+
+optimize_meta: False # Set 'False' for no diversity among population
+inner_loop_episodes: 128 # runs of each inner loop
+meta_update_times: 8 # gradient update times for each meta update
+cur_episodes: 16 # num of trajectories for estimating loss
+
+save_population: True
+save_population_episodes: 4096

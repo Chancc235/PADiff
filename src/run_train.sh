@@ -1,0 +1,1 @@
+nohup python src/meta_main.py --config=stage1_PP > output.log 2>&1 &

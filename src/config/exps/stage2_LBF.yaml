@@ -1,0 +1,28 @@
+exp_name: stage2_LBF
+
+pop: stage2
+ind: stage2
+
+env: lbf
+env_args:
+  field_size: 20
+  max_food: 4
+  sight: 2
+
+t_max: 10000000
+runner: meta
+batch_size_run: 32
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+# ====> population config <====
+alg2agent: 
+  controllable: [0]
+  teammate: [1]
+
+explore_alg: stage2_LBF
+
+teammate_alg: vdn # trained in stage1
+population_directories: models/
+use_history: False # If set 'False', use last checkpoint only

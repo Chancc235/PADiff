@@ -1,0 +1,1 @@
+nohup python compute_rtg.py  > output.log 2>&1 &

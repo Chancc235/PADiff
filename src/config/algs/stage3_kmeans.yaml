@@ -1,0 +1,12 @@
+learner: q_learner
+mac: cmac_v1
+agent: kmeans
+
+action_selector: epsilon_greedy
+buffer_size: 5000
+target_update_interval: 200
+agent_output_type: q
+double_q: True
+mixer: vdn
+
+kmeans: True
