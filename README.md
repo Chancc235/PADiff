@@ -25,7 +25,7 @@ bash run_train.sh
 
 This script will train teammates policies for various environments. The trained models will be saved in the `saves` directory.
 
-### Step 3: Collect Partner Data
+### Step 3: Collect Data
 
 After training teammets policies, collect interaction data by running:
 
@@ -60,10 +60,10 @@ python main.py --env overcooked  # For Overcooked
 
 ### Additional Options
 
-- `--device cpu`: Use CPU instead of GPU
+- `--device gpu`: Use GPU
 - `--seed 42`: Set random seed for reproducibility
 - `--batch_size 128`: Override batch size from config
-- `--epochs 100`: Override number of epochs from config
+- `--epochs 20`: Override number of epochs from config
 
 ## Model Architecture
 
