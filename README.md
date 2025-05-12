@@ -53,9 +53,9 @@ This will train the PADiff model using the collected data. The script supports d
 You can train the PADiff model on a specific environment by specifying the environment name:
 
 ```bash
-python main.py --env PP4a    # For Predator-Prey
-python main.py --env LBF     # For Level-Based Foraging
-python main.py --env overcooked  # For Overcooked
+python train.py --env PP4a    # For Predator-Prey
+python train.py --env LBF     # For Level-Based Foraging
+python train.py --env overcooked  # For Overcooked
 ```
 
 ### Additional Options
