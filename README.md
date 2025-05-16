@@ -69,7 +69,7 @@ python train.py --env overcooked  # For Overcooked
 
 PADiff consists of several key components:
 
-1. **ALT-Net**
+1. **AFM-Net**
 2. **CoGoal**
 3. **CoReturn**
 4. **StateEncoder**
