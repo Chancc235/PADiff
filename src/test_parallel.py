@@ -12,15 +12,15 @@ from components.episode_buffer import EpisodeBatch
 
 
 def worker(_):
-    # 定义队友模型路径
+
     teammate_model_pth = '../saves/PP_models/0/5198198/'
 
-    # 定义一个函数来加载yaml文件
+
     def load_args_from_yaml(yaml_file):
         with open(yaml_file, 'r') as f:
             args = yaml.safe_load(f)
         return args
-    # 定义一个函数来合并两个字典
+
     def merge_dicts(base_dict, custom_dict):
         for key, value in custom_dict.items():
             if isinstance(value, dict) and key in base_dict:
@@ -28,7 +28,6 @@ def worker(_):
             else:
                 base_dict[key] = value
 
-    # 加载环境参数
     env_name ='stag_hunt'
     env_config_path = f'./config/envs/{env_name}.yaml'
 
@@ -46,7 +45,6 @@ def worker(_):
     args.agent_output_type = "q"
     args.device = "cuda:2"
 
-    # 初始化环境
     env = StagHunt(**game_args)
     env_info = env.get_env_info()
     args.n_actions = env.n_actions
@@ -77,9 +75,8 @@ def worker(_):
                                 device=args.device)
 
 
-    # 设置 explore agent 控制器
     mac = mac_REGISTRY[args.mac](buffer.scheme, groups, args)
-    # 加载模型
+
     mac.load_models(teammate_model_pth)
     mac.init_hidden(batch_size=1)
 
@@ -94,7 +91,7 @@ def worker(_):
     done = False
     step_count = 0
     total_reward = 0
-    # 开始游戏循环
+
     while not done and step_count < game_args['episode_limit']:
 
         pre_transition_data = {
@@ -111,7 +108,6 @@ def worker(_):
         pre_transition_data["obs"].append([obs])
         batch.update(pre_transition_data, bs=[0], ts=step_count)
 
-        # 选择动作
         if step_count == 0:
             actions = np.random.randint(0, env.n_actions, size=(env.n_agents,))
         else:
@@ -121,7 +117,7 @@ def worker(_):
             '''
             actions = np.concatenate((actions[:1], np.random.randint(0, env.n_actions, size=(env.n_agents - 1,))))
             '''
-        # 执行动作并获取下一步
+
         reward, done, info = env.step(actions)
 
         post_transition_data = {
@@ -135,7 +131,7 @@ def worker(_):
         
         batch.update(post_transition_data, bs=[0], ts=step_count)
 
-        # 累积奖励
+
         total_reward += reward
         step_count += 1
 
@@ -145,11 +141,9 @@ from concurrent.futures import ProcessPoolExecutor
 
 
 if __name__ == "__main__":
-    # 使用ProcessPoolExecutor来创建并行进程
+
     with ProcessPoolExecutor(max_workers=16) as executor:
         results = list(executor.map(worker, range(16)))
-
-    # 计算均值
     mean_result = sum(results) / len(results)
     
     print("32个程序计算的结果:", results)
