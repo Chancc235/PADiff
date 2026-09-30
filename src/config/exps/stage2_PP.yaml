@@ -1,0 +1,24 @@
+exp_name: stage2_PP
+
+pop: stage2
+ind: stage2
+
+# ====> environment config <====
+env: stag_hunt
+t_max: 5000000
+runner: meta
+batch_size_run: 32
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+# ====> population config <====
+alg2agent:
+  controllable: [0]
+  teammate: [1]
+
+explore_alg: stage2_PP
+
+teammate_alg: vdn # trained in stage1
+population_directories:
+use_history: False # If set 'False', use last checkpoint only

@@ -1,0 +1,32 @@
+# Local environments and Python caches
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+
+# Experiment outputs and datasets
+/data/
+/saves/
+/results/
+/src/results/
+/PADiff/data/
+/PADiff/training_output/
+/training_output/
+/imgs/
+/videos/
+*.pt
+*.pth
+*.ckpt
+events.out.tfevents.*
+output*.log
+
+# Editor files
+.idea/
+.vscode/
+*.swp

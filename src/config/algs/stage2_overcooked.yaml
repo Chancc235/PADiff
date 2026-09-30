@@ -1,0 +1,18 @@
+learner: stage2
+mac: partial
+agent: rnn
+
+# use epsilon greedy action selector
+action_selector: epsilon_greedy
+buffer_size: 5000
+target_update_interval: 200
+agent_output_type: q
+double_q: True
+
+mixer: vdn
+
+# agent parameters
+encoder: lstm # rnn, rnn_vi
+normalize_z: True
+mlp_hidden_dim: 256
+intrinsic_alpha: 0.0000001 # 1e-7

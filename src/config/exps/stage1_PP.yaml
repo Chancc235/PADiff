@@ -1,0 +1,21 @@
+exp_name: stage1_PP
+
+pop: stage1
+ind: stage1
+
+env: stag_hunt
+t_max: 20000000 # totaltimesteps for the slowest individual
+runner: meta
+batch_size_run: 256
+
+# ====> population config <====
+population_alg: vdn # vdn, qtran, coma
+population_size: 4 # modify
+
+optimize_meta: True # Set 'False' for no diversity among population  # 'True'
+inner_loop_episodes: 128 # runs of each inner loop
+meta_update_times: 8 # gradient update times for each meta update
+cur_episodes: 32 # num of trajectories for estimating loss
+
+save_population: True # 'True'
+save_population_episodes: 4096

@@ -1,0 +1,45 @@
+exp_name: stage2_SC2
+
+pop: stage2
+ind: stage2
+
+# # ====> environment config <====
+# env_args:
+#   map_name: Fork
+# t_max: 5000000
+# runner: meta
+# batch_size_run: 8
+# episodes_per_teammate: 64
+# save_BR: True
+# save_BR_episodes: 8192 # number of training episodes between each save
+
+# # ====> population config <====
+# alg2agent:
+#   controllable: [0, 1, 2, 3]
+#   teammate: [4, 5, 6, 7]
+
+# explore_alg: stage2_SC2
+
+# teammate_alg: vdn # trained in stage1
+# population_directories:
+# use_history: False # If set 'False', use last checkpoint only
+
+env_args:
+  map_name: 1c3s5z
+t_max: 3000000
+runner: meta
+batch_size_run: 8
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+# ====> population config <====
+alg2agent:
+  controllable: [0, 1, 2, 3]
+  teammate: [4, 5, 6, 7, 8]
+
+explore_alg: stage2_SC2
+
+teammate_alg: vdn # trained in stage1
+population_directories:
+use_history: False # If set 'False', use last checkpoint only

@@ -1,0 +1,50 @@
+exp_name: stage3_overcooked
+target_alg: stage3_kmeans
+
+pop: stage3
+ind: stage3
+
+# env: overcooked
+# env_args:
+#   layout_name: forced_coordination_hard
+# t_max: 10000000
+# runner: meta
+# batch_size_run: 32
+# episodes_per_teammate: 64
+# save_BR: True
+# save_BR_episodes: 8192 # number of training episodes between each save
+
+# alg2agent:
+#   controllable: [0]
+#   teammate: [1]
+
+# teammate_alg: vdn # trained in stage1
+# population_directories:
+# # test_population_directories: 
+# use_history: False # If set 'False', use last checkpoint only
+
+# explore_alg: stage2_overcooked
+# explore_load_path: 
+
+env: overcooked
+env_args:
+  layout_name: coordination_ring
+t_max: 15000000
+runner: meta
+batch_size_run: 32
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+alg2agent:
+  controllable: [0]
+  teammate: [1]
+
+teammate_alg: vdn # trained in stage1
+population_directories:
+test_population_directories: 
+use_history: False # If set 'False', use last checkpoint only
+
+explore_alg: stage2_overcooked
+explore_load_path: 
+n_sub_modules: 4

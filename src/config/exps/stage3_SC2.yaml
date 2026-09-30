@@ -1,0 +1,55 @@
+exp_name: SC2_1c3s5z_stage3
+
+pop: stage3
+ind: stage3
+
+# # ====> running config <====
+# env_args: 
+#   map_name: Fork
+# t_max: 5000000
+# runner: meta
+# batch_size_run: 8
+# episodes_per_teammate: 64
+# save_BR: True
+# save_BR_episodes: 8192 # number of training episodes between each save
+
+# # ====> population config <====
+# alg2agent: 
+#   controllable: [0, 1, 2, 3]
+#   teammate: [4, 5, 6, 7]
+
+# explore_alg: stage2_SC2 # trained in stage2
+# explore_load_path: 
+
+# target_alg: stage3_kmeans # final exploit algorithm
+
+# teammate_alg: vdn # trained in stage1
+# population_directories:
+# test_population_directories: 
+# use_history: False # If set 'False', use last checkpoint only
+
+# ====> running config <====
+env_args: 
+  map_name: 1c3s5z
+t_max: 3000000
+runner: meta
+batch_size_run: 8
+episodes_per_teammate: 64
+save_BR: True
+save_BR_episodes: 8192 # number of training episodes between each save
+
+# ====> population config <====
+alg2agent: 
+  controllable: [0, 1, 2, 3]
+  teammate: [4, 5, 6, 7, 8]
+
+explore_alg: stage2_SC2 # trained in stage2
+explore_load_path: 
+
+target_alg: stage3_kmeans # final exploit algorithm
+n_sub_modules: 2
+
+teammate_alg: vdn # trained in stage1
+population_directories:
+test_population_directories: 
+use_history: False # If set 'False', use last checkpoint only
